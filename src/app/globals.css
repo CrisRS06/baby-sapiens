@@ -246,11 +246,30 @@
     @apply bg-gradient-to-b from-purple-500/70 to-cyan-500/70;
   }
 
-  /* Safe Viewport Heights - Cross-browser compatibility */
+  /* Safe Viewport Heights - 2024 Best Practices */
   .h-screen-safe {
-    height: 100vh; /* Fallback for all browsers */
-    height: -webkit-fill-available; /* Safari iOS fix */
-    height: 100dvh; /* Modern dynamic viewport height */
+    height: 100vh; /* Fallback for old browsers */
+    height: -webkit-fill-available; /* Safari legacy support */
+  }
+
+  /* Progressive enhancement with 2024 viewport units */
+  @supports (height: 100svh) {
+    .h-screen-safe {
+      height: 100svh; /* Small viewport - stable, assumes toolbars visible */
+    }
+  }
+
+  /* Mobile-first viewport container */
+  .mobile-viewport-container {
+    min-height: 100vh; /* Fallback */
+    display: flex;
+    flex-direction: column;
+  }
+
+  @supports (min-height: 100svh) {
+    .mobile-viewport-container {
+      min-height: 100svh; /* Stable height for mobile */
+    }
   }
 
   .h-main-safe {
@@ -290,7 +309,7 @@
   /* Ensure content is always visible on small screens */
   @media screen and (max-height: 700px) {
     .mobile-compact {
-      padding-top: 0.5rem !important;
+      padding-top: 1rem !important;
       padding-bottom: 0.5rem !important;
     }
     
