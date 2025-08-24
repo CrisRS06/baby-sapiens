@@ -245,4 +245,34 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gradient-to-b from-purple-500/70 to-cyan-500/70;
   }
+
+  /* Safe Viewport Heights - Cross-browser compatibility */
+  .h-screen-safe {
+    height: 100vh; /* Fallback for all browsers */
+    height: -webkit-fill-available; /* Safari iOS fix */
+    height: 100dvh; /* Modern dynamic viewport height */
+  }
+
+  .h-main-safe {
+    height: calc(100% - 4rem); /* Standard calculation */
+    height: calc(-webkit-fill-available - 4rem); /* Safari iOS calculation */
+    min-height: 0; /* Flexbox fix */
+    -webkit-overflow-scrolling: touch; /* iOS native scrolling */
+  }
+
+  /* Container optimizations for chat UI */
+  .chat-container {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Hardware acceleration for smooth mobile performance */
+  .hw-accelerated {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
