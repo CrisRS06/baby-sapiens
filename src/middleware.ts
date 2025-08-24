@@ -17,14 +17,18 @@ const isPublicRoute = createRouteMatcher([
 ])
 
 export default clerkMiddleware(async (auth, request) => {
-  // Run the intl middleware first
-  const intlResponse = intlMiddleware(request);
-  
   if (!isPublicRoute(request)) {
     await auth.protect()
   }
   
-  return intlResponse;
+  // Skip intl middleware for Clerk routes
+  const { pathname } = request.nextUrl;
+  if (pathname.startsWith('/sign-in') || pathname.startsWith('/sign-up')) {
+    return;
+  }
+  
+  // Run the intl middleware after auth for non-Clerk routes
+  return intlMiddleware(request);
 })
 
 export const config = {

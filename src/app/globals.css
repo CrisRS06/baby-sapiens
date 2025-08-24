@@ -4,31 +4,31 @@
 
 @layer base {
   :root {
-    /* Baby Sapiens 2025 Color Palette - Inspired by Bress */
-    --background: 280 35% 98%; /* Soft lavender white */
-    --foreground: 270 30% 12%;
-    --card: 280 40% 99%;
-    --card-foreground: 270 30% 12%;
-    --popover: 280 40% 99%;
-    --popover-foreground: 270 30% 12%;
-    --primary: 255 65% 55%; /* Bress Purple */
+    /* Bress 2025 Color Palette - Based on Official Logo */
+    --background: 240 35% 98%; /* Soft blue-tinted white */
+    --foreground: 240 30% 12%;
+    --card: 240 40% 99%;
+    --card-foreground: 240 30% 12%;
+    --popover: 240 40% 99%;
+    --popover-foreground: 240 30% 12%;
+    --primary: 245 78% 60%; /* Bress Logo Blue-Purple #5D40F3 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 172 85% 45%; /* Bress Turquoise */
+    --secondary: 174 100% 37%; /* Bress Logo Turquoise #00BFA5 */
     --secondary-foreground: 0 0% 100%;
-    --muted: 270 20% 94%;
-    --muted-foreground: 270 15% 40%;
-    --accent: 172 85% 45%; /* Turquoise accent */
+    --muted: 240 20% 94%;
+    --muted-foreground: 240 15% 40%;
+    --accent: 174 100% 37%; /* Turquoise accent matching logo */
     --accent-foreground: 0 0% 100%;
     --destructive: 350 85% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 270 25% 92%;
-    --input: 270 25% 95%;
-    --ring: 255 65% 55%;
+    --border: 240 25% 92%;
+    --input: 240 25% 95%;
+    --ring: 245 78% 60%;
     --radius: 1.25rem; /* 2025 trend - larger, softer radius */
     
-    /* Custom properties for Baby Sapiens */
-    --purple-bress: 255 65% 55%;
-    --turquoise-bress: 172 85% 45%;
+    /* Custom properties for Bress Brand */
+    --bress-primary: 245 78% 60%; /* Main brand blue-purple */
+    --bress-secondary: 174 100% 37%; /* Heart turquoise */
     --pink-soft: 330 80% 95%;
     --yellow-soft: 45 90% 95%;
     --green-soft: 140 70% 95%;
@@ -114,7 +114,10 @@
 
   /* 2025 Organic Gradients */
   .gradient-text-bress {
-    @apply bg-gradient-to-r from-purple-600 via-purple-500 to-cyan-500 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(245, 78%, 60%) 0%, hsl(174, 100%, 37%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .gradient-text-warm {

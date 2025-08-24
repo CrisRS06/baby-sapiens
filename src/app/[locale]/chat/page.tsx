@@ -167,11 +167,12 @@ export default function ChatPage() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="relative">
-                <div className="p-1.5 sm:p-2 bg-gradient-to-br from-purple-600 to-purple-500 rounded-xl shadow-glow">
-                  <div className="relative w-4 h-4 sm:w-5 sm:h-5">
-                    <Baby className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    <Heart className="w-2 h-2 text-cyan-400 absolute -bottom-0.5 -right-0.5" />
-                  </div>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(174,100%,37%)] rounded-xl shadow-glow overflow-hidden">
+                  <img 
+                    src="/bress-logo.png" 
+                    alt="Bress Logo" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="hidden sm:block">

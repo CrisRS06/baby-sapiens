@@ -35,14 +35,12 @@ export default function Home() {
           {/* Logo and Title */}
           <div className="flex items-center gap-4 mb-10">
             <div className="relative">
-              <div className="p-4 bg-gradient-to-br from-purple-600 to-purple-500 rounded-3xl shadow-glow">
-                {/* Simplified Bress Icon */}
-                <div className="relative w-10 h-10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Baby className="w-8 h-8 text-white" />
-                    <Heart className="w-3 h-3 text-cyan-400 absolute bottom-1 right-1" />
-                  </div>
-                </div>
+              <div className="w-14 h-14 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(174,100%,37%)] rounded-2xl shadow-glow overflow-hidden">
+                <img 
+                  src="/bress-logo.png" 
+                  alt="Bress - Tu compañero de crianza con IA" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <Star className="w-5 h-5 decoration-star absolute -top-2 -right-2 animate-gentle-pulse" />
             </div>
@@ -65,7 +63,7 @@ export default function Home() {
           {/* Features */}
           <div className="space-y-6">
             <div className="flex items-start gap-4 group">
-              <div className="p-3 bg-gradient-to-br from-pink-500 to-pink-400 rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
+              <div className="p-3 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(245,78%,55%)] rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -79,7 +77,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-start gap-4 group">
-              <div className="p-3 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
+              <div className="p-3 bg-gradient-to-br from-[hsl(174,100%,37%)] to-[hsl(174,100%,32%)] rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
                 <Moon className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -93,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-start gap-4 group">
-              <div className="p-3 bg-gradient-to-br from-purple-600 to-purple-500 rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
+              <div className="p-3 bg-gradient-to-br from-[hsl(245,78%,60%)] via-[hsl(220,78%,60%)] to-[hsl(174,100%,37%)] rounded-2xl shadow-glass transform group-hover:scale-110 transition-transform">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -139,11 +137,12 @@ export default function Home() {
           <div className="lg:hidden mb-8 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="relative">
-                <div className="p-4 bg-gradient-to-br from-purple-600 to-purple-500 rounded-3xl shadow-glow">
-                  <div className="relative w-8 h-8">
-                    <Baby className="w-7 h-7 text-white" />
-                    <Heart className="w-3 h-3 text-cyan-400 absolute bottom-0 right-0" />
-                  </div>
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(174,100%,37%)] rounded-2xl shadow-glow overflow-hidden">
+                  <img 
+                    src="/bress-logo.png" 
+                    alt="Bress Logo" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <h1 className="text-3xl font-black tracking-tight gradient-text-bress">
