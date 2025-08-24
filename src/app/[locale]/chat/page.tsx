@@ -8,7 +8,14 @@ export default function ChatPage() {
   const t = useTranslations('chat')
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col bg-gradient-to-br from-slate-50 to-gray-100" style={{ height: '100vh', height: '100dvh' }}>
+    <div 
+      className="h-screen overflow-hidden flex flex-col bg-gradient-to-br from-slate-50 to-gray-100" 
+      style={{ 
+        height: '100vh',
+        height: '-webkit-fill-available',
+        height: '100dvh'
+      }}
+    >
       
       {/* Fixed Header - 64px */}
       <header className="h-16 flex-shrink-0 border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
@@ -43,10 +50,31 @@ export default function ChatPage() {
         </div>
       </header>
 
-      {/* Chat Container - Fixed Height */}
-      <main className="flex-1 overflow-hidden p-2 sm:p-4 lg:p-6" style={{ height: 'calc(100% - 4rem)' }}>
-        <div className="w-full h-full max-w-5xl mx-auto">
-          <div className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden">
+      {/* Chat Container - Safari iOS Compatible */}
+      <main 
+        className="flex-1 overflow-hidden p-2 sm:p-4 lg:p-6" 
+        style={{ 
+          height: 'calc(100% - 4rem)',
+          height: 'calc(-webkit-fill-available - 4rem)',
+          minHeight: 0,
+          WebkitOverflowScrolling: 'touch'
+        }}
+      >
+        <div 
+          className="w-full h-full max-w-5xl mx-auto"
+          style={{ 
+            height: '100%',
+            minHeight: 0
+          }}
+        >
+          <div 
+            className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden"
+            style={{ 
+              height: '100%',
+              position: 'relative',
+              minHeight: 0
+            }}
+          >
             <RealBotpressChat />
           </div>
         </div>

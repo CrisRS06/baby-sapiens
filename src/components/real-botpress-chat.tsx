@@ -18,7 +18,14 @@ const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
 
 export default function RealBotpressChat() {
   return (
-    <div className="h-full w-full relative">
+    <div 
+      className="h-full w-full relative"
+      style={{
+        height: '100%',
+        minHeight: 0,
+        overflow: 'hidden'
+      }}
+    >
       <Webchat
         clientId={clientId}
         configuration={{
@@ -40,7 +47,11 @@ export default function RealBotpressChat() {
           right: 0,
           bottom: 0,
           width: '100%',
-          height: '100%'
+          height: '100%',
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
         }}
       />
     </div>
