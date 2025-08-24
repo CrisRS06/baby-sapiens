@@ -23,7 +23,7 @@ export default function ChatPage() {
       #webchat {
         width: 100% !important;
         height: 100% !important;
-        min-height: calc(100vh - 60px) !important;
+        min-height: 500px !important;
         display: flex !important;
         flex-direction: column !important;
       }
@@ -50,9 +50,14 @@ export default function ChatPage() {
       
       /* Responsive adjustments */
       @media (max-width: 768px) {
+        #webchat {
+          min-height: calc(100vh - 70px) !important;
+          height: calc(100vh - 70px) !important;
+        }
+        
         #webchat iframe {
-          min-height: calc(100vh - 60px) !important;
-          height: calc(100vh - 60px) !important;
+          min-height: calc(100vh - 70px) !important;
+          height: calc(100vh - 70px) !important;
           border-radius: 0 !important;
         }
       }
@@ -239,10 +244,6 @@ export default function ChatPage() {
               id="webchat" 
               ref={webchatRef}
               className="w-full h-full rounded-none sm:rounded-2xl relative z-10"
-              style={{ 
-                minHeight: 'calc(100vh - 60px)',
-                height: 'calc(100vh - 60px)'
-              }}
             />
           </div>
 
