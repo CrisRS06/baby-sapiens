@@ -68,24 +68,6 @@ export default async function LocaleLayout({
           dividerText: "text-purple-600 font-medium",
           identityPreviewEditButton: "text-purple-600 hover:text-purple-700 font-medium",
           formFieldAction: "text-purple-600 hover:text-purple-700 font-medium",
-        },
-        localization: {
-          signIn: {
-            start: {
-              title: "Inicia Sesión en Baby Sapiens",
-              subtitle: "¡Bienvenido de vuelta! Inicia sesión para continuar",
-              actionText: "¿No tienes cuenta?",
-              actionLink: "Regístrate"
-            }
-          },
-          signUp: {
-            start: {
-              title: "Únete a Baby Sapiens",
-              subtitle: "Crea tu cuenta para comenzar tu viaje de crianza",
-              actionText: "¿Ya tienes cuenta?",
-              actionLink: "Inicia sesión"
-            }
-          }
         }
       }}
       signInUrl="/sign-in"
