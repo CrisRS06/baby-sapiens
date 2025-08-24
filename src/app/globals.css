@@ -246,16 +246,33 @@
     @apply bg-gradient-to-b from-purple-500/70 to-cyan-500/70;
   }
 
-  /* Safe Viewport Heights - 2024 Best Practices */
+  /* Safe Viewport Heights - 2025 Best Practices */
   .h-screen-safe {
     height: 100vh; /* Fallback for old browsers */
     height: -webkit-fill-available; /* Safari legacy support */
   }
 
-  /* Progressive enhancement with 2024 viewport units */
+  /* Progressive enhancement with 2025 viewport units */
   @supports (height: 100svh) {
     .h-screen-safe {
       height: 100svh; /* Small viewport - stable, assumes toolbars visible */
+    }
+  }
+  
+  /* Mobile Landing Page Optimization */
+  @media screen and (max-height: 800px) {
+    .mobile-landing-compact {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .mobile-landing-compact .auth-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
     }
   }
 
@@ -306,34 +323,34 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Ensure content is always visible on small screens */
+  /* Mobile Landing Page Responsiveness */
   @media screen and (max-height: 700px) {
-    .mobile-compact {
-      padding-top: 1rem !important;
+    .mobile-landing-compact {
+      padding-top: 0.5rem !important;
       padding-bottom: 0.5rem !important;
     }
     
-    .mobile-compact .glass-card {
-      padding: 1rem !important;
+    .mobile-landing-compact .glass-card {
+      padding: 0.75rem !important;
     }
     
-    .mobile-compact .mb-6 {
-      margin-bottom: 1rem !important;
+    .mobile-landing-compact .space-y-4 > * + * {
+      margin-top: 0.75rem !important;
     }
   }
 
   /* iPhone SE and similar small screens */
   @media screen and (max-height: 600px) {
-    .mobile-compact {
-      padding: 0.25rem !important;
+    .mobile-landing-compact {
+      padding: 0.5rem !important;
     }
     
-    .mobile-compact .mb-6 {
-      margin-bottom: 0.5rem !important;
-    }
-    
-    .mobile-compact .mt-6 {
+    .mobile-landing-compact .space-y-4 > * + * {
       margin-top: 0.5rem !important;
+    }
+    
+    .mobile-landing-compact .glass-card {
+      padding: 0.5rem !important;
     }
   }
 }
