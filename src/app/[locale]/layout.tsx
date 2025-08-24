@@ -10,18 +10,18 @@ import "../globals.css"
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
-  title: "Baby Sapiens - Tu Copiloto de Crianza con IA",
+  title: "Baby Sapiens - Tu Compañero de Crianza con IA",
   description: "Conoce a Bress, tu compañero cálido y sereno desde el embarazo hasta los 5 años. Orientación basada en evidencia, apoyo personalizado y tranquilidad para familias modernas.",
   authors: [{ name: "Baby Sapiens" }],
   keywords: ["crianza", "IA", "embarazo", "bebé", "cuidado infantil", "desarrollo", "Bress", "evidencia científica"],
   openGraph: {
-    title: "Baby Sapiens - Tu Copiloto de Crianza con IA",
+    title: "Baby Sapiens - Tu Compañero de Crianza con IA",
     description: "Apoyo en crianza basado en evidencia desde el embarazo hasta los 5 años",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Baby Sapiens - Tu Copiloto de Crianza con IA",
+    title: "Baby Sapiens - Tu Compañero de Crianza con IA",
     description: "Apoyo en crianza basado en evidencia desde el embarazo hasta los 5 años",
   },
 }
