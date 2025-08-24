@@ -8,11 +8,11 @@ export default function ChatPage() {
   const t = useTranslations('chat')
 
   return (
-    <div className="h-screen-safe overflow-hidden flex flex-col bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="app-fixed-height bg-gradient-to-br from-slate-50 to-gray-100">
       
       {/* Fixed Header - 64px */}
-      <header className="h-16 flex-shrink-0 border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <header className="chat-header h-16 border-b border-gray-200/60 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto responsive-spacing h-full">
           <div className="flex items-center justify-between h-full">
             
             {/* Brand */}
@@ -43,10 +43,10 @@ export default function ChatPage() {
         </div>
       </header>
 
-      {/* Chat Container - Safari iOS Compatible */}
-      <main className="flex-1 overflow-hidden p-2 sm:p-4 lg:p-6 h-main-safe">
-        <div className="w-full h-full max-w-5xl mx-auto chat-container">
-          <div className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden chat-container">
+      {/* Chat Container - Optimized Layout */}
+      <main className="chat-main responsive-spacing">
+        <div className="w-full h-full max-w-5xl mx-auto">
+          <div className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden component-isolated">
             <RealBotpressChat />
           </div>
         </div>

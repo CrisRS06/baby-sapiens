@@ -18,7 +18,7 @@ const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
 
 export default function RealBotpressChat() {
   return (
-    <div className="h-full w-full relative chat-container">
+    <div className="h-full w-full relative component-isolated">
       <Webchat
         clientId={clientId}
         configuration={{

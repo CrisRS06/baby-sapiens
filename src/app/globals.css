@@ -246,29 +246,108 @@
     @apply bg-gradient-to-b from-purple-500/70 to-cyan-500/70;
   }
 
-  /* Safe Viewport Heights - Cross-browser compatibility */
-  .h-screen-safe {
-    height: 100vh; /* Fallback for all browsers */
-    height: -webkit-fill-available; /* Safari iOS fix */
-    height: 100dvh; /* Modern dynamic viewport height */
+  /* =================================
+     BABY SAPIENS - UNIFIED VIEWPORT SYSTEM
+     World-class Mobile-First Architecture
+     ================================= */
+
+  /* ROOT VIEWPORT CONTAINER - Single source of truth */
+  .app-viewport-container {
+    height: 100vh;                    /* Standard fallback */
+    height: -webkit-fill-available;   /* Safari iOS compatibility */
+    height: 100dvh;                   /* Modern dynamic viewport */
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;               /* Create stacking context */
   }
 
-  .h-main-safe {
-    height: calc(100% - 4rem); /* Standard calculation */
-    height: calc(-webkit-fill-available - 4rem); /* Safari iOS calculation */
-    min-height: 0; /* Flexbox fix */
-    -webkit-overflow-scrolling: touch; /* iOS native scrolling */
-  }
-
-  /* Container optimizations for chat UI */
-  .chat-container {
+  /* SCROLLABLE CONTENT - For expandable layouts */
+  .app-scrollable-content {
     height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* iOS native scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+  }
+
+  /* FIXED HEIGHT - For chat-like UIs */
+  .app-fixed-height {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Critical for flexbox children */
+  }
+
+  /* RESPONSIVE SPACING SYSTEM - Mobile-first progressive enhancement */
+  .responsive-spacing {
+    padding: 0.75rem; /* Mobile base - 12px */
+  }
+
+  @media (min-width: 640px) { /* sm: tablets portrait */
+    .responsive-spacing { 
+      padding: 1.25rem; /* 20px */ 
+    }
+  }
+
+  @media (min-width: 1024px) { /* lg: desktop */
+    .responsive-spacing { 
+      padding: 2rem; /* 32px */ 
+    }
+  }
+
+  /* CHAT LAYOUT SYSTEM - Optimized for conversational UI */
+  .chat-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .chat-header {
+    flex-shrink: 0;
+    z-index: 20;
+  }
+
+  .chat-main {
+    flex: 1;
     min-height: 0;
     overflow: hidden;
     position: relative;
   }
 
-  /* Hardware acceleration for smooth mobile performance */
+  .chat-input-area {
+    flex-shrink: 0;
+    z-index: 20;
+  }
+
+  /* LANDING LAYOUT SYSTEM - For marketing pages */
+  .landing-layout {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1024px) {
+    .landing-layout {
+      flex-direction: row;
+      height: 100%;
+    }
+  }
+
+  /* SAFE AREA HANDLING - For notched devices */
+  .safe-area-insets {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+
+  /* HARDWARE ACCELERATION - Smooth performance */
   .hw-accelerated {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -276,45 +355,45 @@
     backface-visibility: hidden;
   }
 
-  /* Mobile-specific optimizations */
-  .mobile-safe-bottom {
-    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  /* COMPONENT ISOLATION - Prevent layout leaks */
+  .component-isolated {
+    contain: layout style;
+    isolation: isolate;
   }
 
-  .mobile-scroll-container {
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Ensure content is always visible on small screens */
+  /* PROGRESSIVE CONTENT SIZING - Adaptive to screen height */
   @media screen and (max-height: 700px) {
-    .mobile-compact {
-      padding-top: 0.5rem !important;
-      padding-bottom: 0.5rem !important;
-    }
-    
-    .mobile-compact .glass-card {
+    .adaptive-compact .glass-card {
       padding: 1rem !important;
     }
     
-    .mobile-compact .mb-6 {
-      margin-bottom: 1rem !important;
+    .adaptive-compact .text-spacing {
+      margin-bottom: 0.75rem !important;
     }
   }
 
-  /* iPhone SE and similar small screens */
   @media screen and (max-height: 600px) {
-    .mobile-compact {
-      padding: 0.25rem !important;
+    .adaptive-compact .glass-card {
+      padding: 0.75rem !important;
     }
     
-    .mobile-compact .mb-6 {
+    .adaptive-compact .text-spacing {
       margin-bottom: 0.5rem !important;
     }
-    
-    .mobile-compact .mt-6 {
-      margin-top: 0.5rem !important;
+  }
+
+  /* ACCESSIBILITY ENHANCEMENTS */
+  @media (prefers-reduced-motion: reduce) {
+    .app-viewport-container,
+    .app-scrollable-content {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* HIGH CONTRAST MODE SUPPORT */
+  @media (prefers-contrast: high) {
+    .app-viewport-container {
+      border: 2px solid ButtonText;
     }
   }
 }

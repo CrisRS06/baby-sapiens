@@ -22,7 +22,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <div className="min-h-screen relative overflow-hidden gradient-bg-organic dark:bg-gradient-to-br dark:from-purple-950 dark:via-purple-900 dark:to-cyan-950">
+      <div className="app-viewport-container gradient-bg-organic dark:bg-gradient-to-br dark:from-purple-950 dark:via-purple-900 dark:to-cyan-950">
         {/* Animated background elements - Baby Sapiens themed */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-purple-400/25 via-purple-300/15 to-pink-300/10 rounded-full mix-blend-overlay filter blur-3xl opacity-60 animate-pulse [animation-duration:12s]"></div>
