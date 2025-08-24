@@ -141,12 +141,12 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col gradient-bg-organic relative overflow-y-auto">
-      {/* Animated decorative elements */}
-      <div className="blob-purple w-64 h-64 -top-32 -left-32 opacity-30" />
-      <div className="blob-turquoise w-64 h-64 -bottom-32 -right-32 opacity-30" />
-      <Star className="w-6 h-6 decoration-star absolute top-20 right-20 animate-float" />
-      <Star className="w-4 h-4 decoration-star absolute bottom-20 left-20 animate-gentle-pulse" />
+    <div className="h-screen flex flex-col gradient-bg-organic relative overflow-y-auto">
+      {/* Animated decorative elements - Hidden on mobile */}
+      <div className="hidden sm:block blob-purple w-64 h-64 -top-32 -left-32 opacity-30" />
+      <div className="hidden sm:block blob-turquoise w-64 h-64 -bottom-32 -right-32 opacity-30" />
+      <Star className="hidden sm:block w-6 h-6 decoration-star absolute top-20 right-20 animate-float" />
+      <Star className="hidden sm:block w-4 h-4 decoration-star absolute bottom-20 left-20 animate-gentle-pulse" />
 
       {/* Load Botpress Script */}
       <Script
@@ -163,8 +163,8 @@ export default function ChatPage() {
 
       {/* Header - Fixed height with purple gradient */}
       <div className="glass-card border-b border-purple-200/30 bg-gradient-to-r from-purple-50/80 via-white/90 to-cyan-50/80 backdrop-blur-xl flex-shrink-0 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-12 sm:h-16">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="relative">
                 <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(174,100%,37%)] rounded-xl shadow-glow overflow-hidden">
@@ -190,8 +190,8 @@ export default function ChatPage() {
         </div>
       </div>
 
-      {/* Main Content - Mobile-optimized for maximum chat space */}
-      <div className="flex-1 px-2 py-2 sm:px-6 sm:py-4 lg:px-8 relative z-10">
+      {/* Main Content - Full viewport on mobile for maximum chat space */}
+      <div className="flex-1 p-0 sm:px-6 sm:py-4 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto min-h-full flex flex-col">
           {/* Info Cards - Baby-themed with icons - Hidden on mobile for better chat UX */}
           <div className="hidden sm:grid sm:grid-cols-3 gap-4 mb-4 flex-shrink-0">
@@ -224,21 +224,21 @@ export default function ChatPage() {
             </div>
           </div>
 
-          {/* Webchat Container - Mobile-optimized for better chat experience */}
-          <div className="flex-1 glass-card bg-gradient-to-br from-white/90 to-purple-50/50 backdrop-blur-xl border border-purple-200/30 rounded-2xl sm:rounded-3xl shadow-glass-lg p-2 sm:p-6 overflow-hidden relative">
-            {/* Decorative corner elements */}
-            <div className="absolute top-2 left-2 animate-gentle-pulse">
+          {/* Webchat Container - Full viewport on mobile */}
+          <div className="flex-1 bg-white sm:glass-card sm:bg-gradient-to-br sm:from-white/90 sm:to-purple-50/50 sm:backdrop-blur-xl sm:border sm:border-purple-200/30 sm:rounded-3xl sm:shadow-glass-lg p-0 sm:p-6 overflow-hidden relative">
+            {/* Decorative corner elements - Hidden on mobile */}
+            <div className="hidden sm:block absolute top-2 left-2 animate-gentle-pulse">
               <Heart className="w-6 h-6 decoration-heart opacity-30" />
             </div>
-            <div className="absolute bottom-2 right-2 animate-float">
+            <div className="hidden sm:block absolute bottom-2 right-2 animate-float">
               <Star className="w-5 h-5 decoration-star opacity-30" />
             </div>
             
             <div 
               id="webchat" 
               ref={webchatRef}
-              className="w-full h-full rounded-xl sm:rounded-2xl relative z-10"
-              style={{ minHeight: '600px' }}
+              className="w-full h-full rounded-none sm:rounded-2xl relative z-10"
+              style={{ minHeight: 'calc(100vh - 60px)' }}
             />
           </div>
 
