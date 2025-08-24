@@ -2,9 +2,7 @@
 
 import { UserButton } from '@clerk/nextjs'
 import { useTranslations } from 'next-intl'
-import { Webchat } from '@botpress/webchat'
-
-const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
+import NativeChat from '@/components/native-chat'
 
 export default function ChatPage() {
   const t = useTranslations('chat')
@@ -49,29 +47,7 @@ export default function ChatPage() {
       <main className="flex-1 p-4 sm:p-6">
         <div className="max-w-5xl mx-auto h-full">
           <div className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden">
-            
-            <Webchat
-              clientId={clientId}
-              configuration={{
-                botName: "Bress",
-                botAvatar: "https://files.bpcontent.cloud/2025/08/23/00/20250823004944-C94MYIP5.png",
-                botDescription: "Tu asistente especializado en crianza con evidencia científica",
-                composerPlaceholder: "Escribe tu pregunta sobre crianza...",
-                color: "#6366f1",
-                variant: "solid",
-                themeMode: "light",
-                fontFamily: "inter",
-                showPoweredBy: false,
-                radius: 2
-              }}
-              style={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                borderRadius: '1rem'
-              }}
-            />
-
+            <NativeChat />
           </div>
         </div>
       </main>
