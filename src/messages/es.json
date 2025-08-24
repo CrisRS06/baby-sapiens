@@ -1,0 +1,88 @@
+{
+  "common": {
+    "home": "Inicio",
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "navigation": {
+    "dashboard": "Panel",
+    "chat": "Chat con Bress"
+  },
+  "landing": {
+    "title": "Baby Sapiens",
+    "subtitle": "Tu Copiloto de Crianza con IA",
+    "description": "Conoce a Bress, tu compañero cálido y sereno desde el embarazo hasta los 5 años. Orientación basada en evidencia, apoyo personalizado y tranquilidad para familias modernas.",
+    "getStarted": "Comenzar Ahora",
+    "learnMore": "Conocer Más",
+    "features": {
+      "diagnosis": {
+        "title": "Salud y Seguridad",
+        "description": "Respuestas basadas en evidencia y orientación de emergencia"
+      },
+      "optimization": {
+        "title": "Sueño y Rutinas",
+        "description": "Crear patrones saludables para tu familia"
+      },
+      "knowledge": {
+        "title": "Seguimiento del Desarrollo",
+        "description": "Hitos y actividades apropiadas para cada edad"
+      }
+    },
+    "safetyNote": {
+      "title": "💜 Importante:",
+      "description": "Bress proporciona información basada en evidencia. Siempre consulta con tu proveedor de salud para preocupaciones médicas."
+    },
+    "signIn": {
+      "title": "Inicia Sesión en Baby Sapiens",
+      "subtitle": "¡Bienvenido de vuelta! Inicia sesión para continuar",
+      "joinText": "Únete a miles de padres recibiendo apoyo personalizado.",
+      "startFree": "Comienza gratis hoy",
+      "privacySecure": "Privacidad Segura",
+      "evidenceBased": "Basado en Evidencia"
+    }
+  },
+  "chat": {
+    "title": "Chat con Bress",
+    "subtitle": "Tu apoyo personalizado en crianza",
+    "description": "Pregúntame cualquier cosa sobre embarazo, bebés o crianza - estoy aquí para ayudarte con orientación basada en evidencia",
+    "placeholder": "Escribe tu duda (edad del bebé + tema). Ej.: \"Bebé 4 m • se despierta cada 2 h\"",
+    "features": {
+      "diagnosis": {
+        "title": "🍼 Alimentación",
+        "description": "Orientación sobre pecho, biberón y sólidos"
+      },
+      "optimization": {
+        "title": "😴 Sueño",
+        "description": "Hábitos y rutinas de sueño saludables"
+      },
+      "materials": {
+        "title": "🌱 Desarrollo",
+        "description": "Hitos del desarrollo de 0 a 5 años"
+      }
+    },
+    "tips": {
+      "askAnything": "Pregunta sobre crianza",
+      "evidenceAnswers": "Respuestas con evidencia",
+      "personalizedGuidance": "Orientación personalizada"
+    }
+  },
+  "dashboard": {
+    "title": "Panel Familiar",
+    "subtitle": "Tu viaje de crianza de un vistazo",
+    "description": "Rastrea hitos, accede a recursos y obtén información personalizada para tu familia.",
+    "quickAccess": "Acciones Rápidas",
+    "recentActivity": "Temas Recientes",
+    "stats": {
+      "totalConsultations": "Preguntas Realizadas",
+      "problemsSolved": "Consejos Recibidos",
+      "avgResponseTime": "Días Activos",
+      "userSatisfaction": "Hitos"
+    },
+    "actions": {
+      "newConsultation": "Preguntar a Bress",
+      "viewHistory": "Ver Historial",
+      "downloadReport": "Exportar Viaje"
+    }
+  }
+}

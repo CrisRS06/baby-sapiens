@@ -1,0 +1,75 @@
+{
+  "common": {
+    "home": "Home",
+    "language": "Language",
+    "spanish": "Español",
+    "english": "English"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "chat": "Chat with Bress"
+  },
+  "landing": {
+    "title": "Baby Sapiens",
+    "subtitle": "Your AI Parenting Copilot",
+    "description": "Meet Bress, your warm and serene companion from pregnancy through age 5. Evidence-based guidance, personalized support, and peace of mind for modern families.",
+    "getStarted": "Start Your Journey",
+    "learnMore": "Learn More",
+    "features": {
+      "diagnosis": {
+        "title": "Health & Safety",
+        "description": "Evidence-based answers and emergency guidance"
+      },
+      "optimization": {
+        "title": "Sleep & Routines",
+        "description": "Creating healthy patterns for your family"
+      },
+      "knowledge": {
+        "title": "Development Tracking",
+        "description": "Milestones and age-appropriate activities"
+      }
+    },
+    "safetyNote": {
+      "title": "💜 Important:",
+      "description": "Bress provides evidence-based information. Always consult your healthcare provider for medical concerns."
+    }
+  },
+  "chat": {
+    "title": "Chat with Bress",
+    "subtitle": "Your personalized parenting support",
+    "description": "Ask anything about pregnancy, babies, or parenting - I'm here to help with evidence-based guidance",
+    "placeholder": "Ask me anything about pregnancy, babies, or parenting...",
+    "features": {
+      "diagnosis": {
+        "title": "🍼 Feeding",
+        "description": "Breast, bottle, and solids guidance"
+      },
+      "optimization": {
+        "title": "😴 Sleep",
+        "description": "Healthy sleep habits and routines"
+      },
+      "materials": {
+        "title": "🌱 Development",
+        "description": "Milestones from 0-5 years"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Family Dashboard",
+    "subtitle": "Your parenting journey at a glance",
+    "description": "Track milestones, access resources, and get personalized insights for your family.",
+    "quickAccess": "Quick Actions",
+    "recentActivity": "Recent Topics",
+    "stats": {
+      "totalConsultations": "Questions Asked",
+      "problemsSolved": "Insights Gained",
+      "avgResponseTime": "Active Days",
+      "userSatisfaction": "Milestones"
+    },
+    "actions": {
+      "newConsultation": "Ask Bress",
+      "viewHistory": "View History",
+      "downloadReport": "Export Journey"
+    }
+  }
+}
