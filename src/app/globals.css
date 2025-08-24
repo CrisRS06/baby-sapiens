@@ -275,4 +275,46 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
+
+  /* Mobile-specific optimizations */
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .mobile-scroll-container {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure content is always visible on small screens */
+  @media screen and (max-height: 700px) {
+    .mobile-compact {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    .mobile-compact .glass-card {
+      padding: 1rem !important;
+    }
+    
+    .mobile-compact .mb-6 {
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  /* iPhone SE and similar small screens */
+  @media screen and (max-height: 600px) {
+    .mobile-compact {
+      padding: 0.25rem !important;
+    }
+    
+    .mobile-compact .mb-6 {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .mobile-compact .mt-6 {
+      margin-top: 0.5rem !important;
+    }
+  }
 }

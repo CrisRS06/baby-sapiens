@@ -24,7 +24,7 @@ export default function Home() {
 
 
   return (
-    <div className="flex min-h-screen relative overflow-hidden">
+    <div className="flex h-screen-safe relative overflow-hidden">
       {/* Animated Background Blobs */}
       <div className="blob-purple w-96 h-96 -top-48 -left-48" />
       <div className="blob-turquoise w-96 h-96 -bottom-48 -right-48" />
@@ -131,10 +131,10 @@ export default function Home() {
       </div>
 
       {/* Right side - Sign In */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 lg:p-12 relative z-10">
-        <div className="w-full max-w-md px-4 sm:px-0">
+      <div className="w-full lg:w-1/2 flex items-center justify-center mobile-compact mobile-scroll-container relative z-10">
+        <div className="w-full max-w-md px-2 sm:px-4 lg:px-0 mobile-safe-bottom">
           {/* Mobile Header */}
-          <div className="lg:hidden mb-8 text-center">
+          <div className="lg:hidden mb-6 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-br from-[hsl(245,78%,60%)] to-[hsl(174,100%,37%)] rounded-2xl shadow-glow overflow-hidden">
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
 
           {/* Sign In Card with enhanced glass effect */}
-          <div className="glass-card p-8 shadow-glass-lg border-purple-200/25 relative">
+          <div className="glass-card p-4 sm:p-6 lg:p-8 shadow-glass-lg border-purple-200/25 relative">
             <div className="absolute -top-4 -right-4 animate-gentle-pulse">
               <div className="w-20 h-20 bg-gradient-to-br from-purple-400/20 to-cyan-400/20 rounded-full blur-2xl" />
             </div>
@@ -187,13 +187,13 @@ export default function Home() {
             />
           </div>
 
-          <p className="text-center text-sm font-medium text-muted-foreground mt-8 leading-relaxed">
+          <p className="text-center text-sm font-medium text-muted-foreground mt-6 leading-relaxed">
             {t('signIn.joinText')}{' '}
             <span className="text-purple-600 font-semibold">{t('signIn.startFree')}</span>
           </p>
 
           {/* Trust Badges */}
-          <div className="flex items-center justify-center gap-6 mt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-4 pb-4">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Shield className="w-4 h-4 text-purple-500" />
               <span>{t('signIn.privacySecure')}</span>
