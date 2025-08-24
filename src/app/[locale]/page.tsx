@@ -131,8 +131,8 @@ export default function Home() {
       </div>
 
       {/* Right side - Sign In */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 relative z-10">
-        <div className="w-full max-w-md">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 lg:p-12 relative z-10">
+        <div className="w-full max-w-md px-4 sm:px-0">
           {/* Mobile Header */}
           <div className="lg:hidden mb-8 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -145,11 +145,11 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <h1 className="text-3xl font-black tracking-tight gradient-text-bress">
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight gradient-text-bress">
                 {t('title')}
               </h1>
             </div>
-            <p className="text-lg font-medium text-muted-foreground">
+            <p className="text-base sm:text-lg font-medium text-muted-foreground">
               {t('subtitle')}
             </p>
           </div>

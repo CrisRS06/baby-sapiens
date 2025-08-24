@@ -141,7 +141,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="h-screen flex flex-col gradient-bg-organic relative overflow-hidden">
+    <div className="min-h-screen flex flex-col gradient-bg-organic relative overflow-y-auto">
       {/* Animated decorative elements */}
       <div className="blob-purple w-64 h-64 -top-32 -left-32 opacity-30" />
       <div className="blob-turquoise w-64 h-64 -bottom-32 -right-32 opacity-30" />
@@ -191,8 +191,8 @@ export default function ChatPage() {
       </div>
 
       {/* Main Content - Flex grow to fill remaining space */}
-      <div className="flex-1 overflow-hidden px-4 py-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto h-full flex flex-col">
+      <div className="flex-1 px-4 py-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto min-h-full flex flex-col">
           {/* Info Cards - Baby-themed with icons */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4 flex-shrink-0">
             <div className="neo-soft p-2 sm:p-3 border border-purple-200/30">

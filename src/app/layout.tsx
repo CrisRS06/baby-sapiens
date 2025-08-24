@@ -28,6 +28,37 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider
+      localization={{
+        signIn: {
+          start: {
+            title: "Inicia sesión en Baby Sapiens",
+            subtitle: "Bienvenido de vuelta! Inicia sesión para continuar",
+            actionText: "¿No tienes cuenta?",
+            actionLink: "Regístrate"
+          }
+        },
+        signUp: {
+          start: {
+            title: "Crea tu cuenta en Baby Sapiens", 
+            subtitle: "Bienvenido! Crea tu cuenta para comenzar",
+            actionText: "¿Ya tienes cuenta?",
+            actionLink: "Inicia sesión"
+          }
+        },
+        formFieldLabel__emailAddress: "Correo electrónico",
+        formFieldLabel__password: "Contraseña",
+        formFieldLabel__firstName: "Nombre",
+        formFieldLabel__lastName: "Apellido",
+        formFieldInputPlaceholder__emailAddress: "Ingresa tu correo electrónico",
+        formFieldInputPlaceholder__password: "Ingresa tu contraseña", 
+        formFieldInputPlaceholder__firstName: "Ingresa tu nombre",
+        formFieldInputPlaceholder__lastName: "Ingresa tu apellido",
+        formButtonPrimary: "Continuar",
+        formFieldLabel__username: "Nombre de usuario",
+        formFieldInputPlaceholder__username: "Ingresa tu nombre de usuario",
+        dividerText: "o",
+        socialButtonsBlockButton: "Continuar con {{provider|titleize}}"
+      }}
       appearance={{
         baseTheme: undefined,
         variables: {
