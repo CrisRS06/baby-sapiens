@@ -1,150 +1,16 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { UserButton } from '@clerk/nextjs'
-import { Baby, Heart, Moon, Sparkles, Star, MessageCircle } from 'lucide-react'
-import Script from 'next/script'
-import { useTranslations, useLocale } from 'next-intl'
-import { useRouter, usePathname } from '@/navigation'
+import { Heart, Sparkles, Star, MessageCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { Webchat, Fab } from '@botpress/webchat'
+
+const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
 
 export default function ChatPage() {
-  const webchatRef = useRef<HTMLDivElement>(null)
-  const isInitialized = useRef(false)
   const t = useTranslations('chat')
-  const locale = useLocale()
-  const router = useRouter()
-  const pathname = usePathname()
-
-
-  useEffect(() => {
-    // Inject custom styles for Bress webchat
-    const style = document.createElement('style')
-    style.textContent = `
-      #webchat {
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 500px !important;
-        display: flex !important;
-        flex-direction: column !important;
-      }
-      
-      #webchat .bpWebchat {
-        position: unset !important;
-        width: 100% !important;
-        height: 100% !important;
-        max-height: 100% !important;
-        max-width: 100% !important;
-      }
-
-      #webchat .bpFab {
-        display: none !important;
-      }
-      
-      #webchat iframe {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 1.5rem !important;
-        min-height: 400px !important;
-        box-shadow: 0 0 50px rgba(139, 92, 246, 0.08) !important;
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        #webchat {
-          min-height: calc(100vh - 70px) !important;
-          height: calc(100vh - 70px) !important;
-        }
-        
-        #webchat iframe {
-          min-height: calc(100vh - 70px) !important;
-          height: calc(100vh - 70px) !important;
-          border-radius: 0 !important;
-        }
-      }
-      
-      /* Hide Botpress branding */
-      #webchat .bpw-powered-by {
-        display: none !important;
-      }
-
-      /* Custom Bress theme overrides */
-      #webchat .bpw-header {
-        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%) !important;
-      }
-
-      #webchat .bpw-from-bot .bpw-chat-bubble {
-        background: linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 100%) !important;
-        color: #4c1d95 !important;
-      }
-
-      #webchat .bpw-from-user .bpw-chat-bubble {
-        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
-      }
-    `
-    document.head.appendChild(style)
-
-    return () => {
-      style.remove()
-    }
-  }, [])
-
-  const initializeBotpress = () => {
-    // Prevent double initialization
-    if (isInitialized.current) return
-    
-    // Check if botpress is available on window
-    if (typeof window !== 'undefined' && (window as any).botpress) {
-      console.log('[Bress] Initializing webchat...')
-      isInitialized.current = true
-
-      // Listen for ready event BEFORE initializing
-      ;(window as any).botpress.on("webchat:ready", () => {
-        console.log('[Bress] Webchat ready, opening...')
-        ;(window as any).botpress.open()
-      })
-
-      // Initialize with Bress configuration
-      ;(window as any).botpress.init({
-        "botId": "cb13f3bc-fe1c-4c9a-810b-e991283cd9e6",
-        "configuration": {
-          "version": "v1",
-          "composerPlaceholder": "Escribe tu duda (edad del bebé + tema). Ej.: 'Bebé 4 m • se despierta cada 2 h'",
-          "botName": "Bress: Asistente para padres primerizos",
-          "botAvatar": "https://files.bpcontent.cloud/2025/08/23/00/20250823004944-C94MYIP5.png",
-          "botDescription": "Guía breve y accionable, basada en evidencia (OMS, AAP, ACOG, CDC, NHS/NICE) para embarazo → 5 años: sueño, alimentación, desarrollo, salud mental y seguridad. No sustituye atención médica.",
-          "fabImage": "https://files.bpcontent.cloud/2025/08/23/00/20250823004944-C94MYIP5.png",
-          "website": {},
-          "email": {},
-          "phone": {},
-          "termsOfService": {},
-          "privacyPolicy": {},
-          "color": "#3276EA",
-          "variant": "solid",
-          "headerVariant": "glass",
-          "themeMode": "light",
-          "fontFamily": "inter",
-          "radius": 4,
-          "feedbackEnabled": true,
-          "footer": "[⚡ by Baby Sapiens]"
-        },
-        "clientId": "f657ad35-3575-4861-92bd-e52dac005765",
-        "selector": "#webchat"
-      })
-
-      console.log('[Bress] Initialization complete')
-      
-      // Force open the webchat after initialization
-      setTimeout(() => {
-        if ((window as any).botpress && (window as any).botpress.open) {
-          console.log('[Bress] Force opening webchat...')
-          ;(window as any).botpress.open()
-        }
-      }, 500)
-    } else {
-      console.log('[Bress] Not ready yet, retrying...')
-      setTimeout(initializeBotpress, 100)
-    }
-  }
+  const [isWebchatOpen, setIsWebchatOpen] = useState(true) // Siempre abierto en nuestro caso
 
   return (
     <div className="h-screen flex flex-col gradient-bg-organic relative overflow-y-auto">
@@ -153,19 +19,6 @@ export default function ChatPage() {
       <div className="hidden sm:block blob-turquoise w-64 h-64 -bottom-32 -right-32 opacity-30" />
       <Star className="hidden sm:block w-6 h-6 decoration-star absolute top-20 right-20 animate-float" />
       <Star className="hidden sm:block w-4 h-4 decoration-star absolute bottom-20 left-20 animate-gentle-pulse" />
-
-      {/* Load Botpress Script */}
-      <Script
-        src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log('[Bress] Script loaded')
-          initializeBotpress()
-        }}
-        onError={() => {
-          console.error('[Bress] Failed to load script')
-        }}
-      />
 
       {/* Header - Fixed height with purple gradient */}
       <div className="glass-card border-b border-purple-200/30 bg-gradient-to-r from-purple-50/80 via-white/90 to-cyan-50/80 backdrop-blur-xl flex-shrink-0 relative z-10">
@@ -240,11 +93,31 @@ export default function ChatPage() {
               <Star className="w-5 h-5 decoration-star opacity-30" />
             </div>
             
-            <div 
-              id="webchat" 
-              ref={webchatRef}
-              className="w-full h-full rounded-none sm:rounded-2xl relative z-10"
-            />
+            {/* Native React Botpress Webchat */}
+            <div className="w-full h-full relative z-10">
+              <Webchat
+                clientId={clientId}
+                configuration={{
+                  botName: "Bress: Asistente para padres primerizos",
+                  botAvatar: "https://files.bpcontent.cloud/2025/08/23/00/20250823004944-C94MYIP5.png",
+                  botDescription: "Guía breve y accionable, basada en evidencia (OMS, AAP, ACOG, CDC, NHS/NICE) para embarazo → 5 años: sueño, alimentación, desarrollo, salud mental y seguridad. No sustituye atención médica.",
+                  composerPlaceholder: "Escribe tu duda (edad del bebé + tema). Ej.: 'Bebé 4 m • se despierta cada 2 h'",
+                  color: "#8b5cf6",
+                  variant: "solid",
+                  themeMode: "light",
+                  fontFamily: "inter",
+                  showPoweredBy: false,
+                  footer: "[⚡ by Baby Sapiens]"
+                }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  minHeight: 'calc(100vh - 70px)',
+                  display: 'flex'
+                }}
+                className="rounded-none sm:rounded-2xl"
+              />
+            </div>
           </div>
 
           {/* Quick Tips - Hidden on mobile for better chat UX */}
