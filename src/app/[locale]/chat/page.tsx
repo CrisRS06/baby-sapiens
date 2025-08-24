@@ -23,7 +23,7 @@ export default function ChatPage() {
       #webchat {
         width: 100% !important;
         height: 100% !important;
-        min-height: 500px !important;
+        min-height: calc(100vh - 60px) !important;
         display: flex !important;
         flex-direction: column !important;
       }
@@ -51,8 +51,9 @@ export default function ChatPage() {
       /* Responsive adjustments */
       @media (max-width: 768px) {
         #webchat iframe {
-          min-height: 350px !important;
-          border-radius: 1rem !important;
+          min-height: calc(100vh - 60px) !important;
+          height: calc(100vh - 60px) !important;
+          border-radius: 0 !important;
         }
       }
       
@@ -191,8 +192,8 @@ export default function ChatPage() {
       </div>
 
       {/* Main Content - Full viewport on mobile for maximum chat space */}
-      <div className="flex-1 p-0 sm:px-6 sm:py-4 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto min-h-full flex flex-col">
+      <div className="flex-1 p-0 sm:px-6 sm:py-4 lg:px-8 relative z-10 min-h-0">
+        <div className="max-w-7xl mx-auto h-full flex flex-col">
           {/* Info Cards - Baby-themed with icons - Hidden on mobile for better chat UX */}
           <div className="hidden sm:grid sm:grid-cols-3 gap-4 mb-4 flex-shrink-0">
             <div className="neo-soft p-2 sm:p-3 border border-purple-200/30">
@@ -225,7 +226,7 @@ export default function ChatPage() {
           </div>
 
           {/* Webchat Container - Full viewport on mobile */}
-          <div className="flex-1 bg-white sm:glass-card sm:bg-gradient-to-br sm:from-white/90 sm:to-purple-50/50 sm:backdrop-blur-xl sm:border sm:border-purple-200/30 sm:rounded-3xl sm:shadow-glass-lg p-0 sm:p-6 overflow-hidden relative">
+          <div className="flex-1 bg-white sm:glass-card sm:bg-gradient-to-br sm:from-white/90 sm:to-purple-50/50 sm:backdrop-blur-xl sm:border sm:border-purple-200/30 sm:rounded-3xl sm:shadow-glass-lg p-0 sm:p-6 overflow-hidden relative min-h-0">
             {/* Decorative corner elements - Hidden on mobile */}
             <div className="hidden sm:block absolute top-2 left-2 animate-gentle-pulse">
               <Heart className="w-6 h-6 decoration-heart opacity-30" />
@@ -238,7 +239,10 @@ export default function ChatPage() {
               id="webchat" 
               ref={webchatRef}
               className="w-full h-full rounded-none sm:rounded-2xl relative z-10"
-              style={{ minHeight: 'calc(100vh - 60px)' }}
+              style={{ 
+                minHeight: 'calc(100vh - 60px)',
+                height: 'calc(100vh - 60px)'
+              }}
             />
           </div>
 
