@@ -190,11 +190,11 @@ export default function ChatPage() {
         </div>
       </div>
 
-      {/* Main Content - Flex grow to fill remaining space */}
-      <div className="flex-1 px-4 py-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Main Content - Mobile-optimized for maximum chat space */}
+      <div className="flex-1 px-2 py-2 sm:px-6 sm:py-4 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto min-h-full flex flex-col">
-          {/* Info Cards - Baby-themed with icons */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4 flex-shrink-0">
+          {/* Info Cards - Baby-themed with icons - Hidden on mobile for better chat UX */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-4 mb-4 flex-shrink-0">
             <div className="neo-soft p-2 sm:p-3 border border-purple-200/30">
               <h3 className="font-semibold text-foreground text-xs sm:text-sm mb-0.5 sm:mb-1 flex items-center gap-2">
                 <span className="text-lg">{t('features.diagnosis.title').split(' ')[0]}</span>
@@ -224,8 +224,8 @@ export default function ChatPage() {
             </div>
           </div>
 
-          {/* Webchat Container - Enhanced with baby-friendly design */}
-          <div className="flex-1 glass-card bg-gradient-to-br from-white/90 to-purple-50/50 backdrop-blur-xl border border-purple-200/30 rounded-3xl shadow-glass-lg p-4 sm:p-6 overflow-hidden relative">
+          {/* Webchat Container - Mobile-optimized for better chat experience */}
+          <div className="flex-1 glass-card bg-gradient-to-br from-white/90 to-purple-50/50 backdrop-blur-xl border border-purple-200/30 rounded-2xl sm:rounded-3xl shadow-glass-lg p-2 sm:p-6 overflow-hidden relative">
             {/* Decorative corner elements */}
             <div className="absolute top-2 left-2 animate-gentle-pulse">
               <Heart className="w-6 h-6 decoration-heart opacity-30" />
@@ -237,22 +237,22 @@ export default function ChatPage() {
             <div 
               id="webchat" 
               ref={webchatRef}
-              className="w-full h-full rounded-2xl relative z-10"
-              style={{ minHeight: '500px' }}
+              className="w-full h-full rounded-xl sm:rounded-2xl relative z-10"
+              style={{ minHeight: '600px' }}
             />
           </div>
 
-          {/* Quick Tips */}
-          <div className="mt-4 flex items-center justify-center gap-4 text-xs text-muted-foreground">
+          {/* Quick Tips - Hidden on mobile for better chat UX */}
+          <div className="mt-4 hidden sm:flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-1">
               <MessageCircle className="w-3 h-3 text-purple-500" />
               <span>Pregunta sobre crianza</span>
             </div>
-            <div className="hidden sm:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <Heart className="w-3 h-3 text-cyan-500" />
               <span>Respuestas con evidencia</span>
             </div>
-            <div className="hidden md:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <Sparkles className="w-3 h-3 text-purple-500" />
               <span>Orientación personalizada</span>
             </div>
