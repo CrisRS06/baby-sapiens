@@ -2,7 +2,7 @@
 
 import { UserButton } from '@clerk/nextjs'
 import { useTranslations } from 'next-intl'
-import NativeChat from '@/components/native-chat'
+import RealBotpressChat from '@/components/real-botpress-chat'
 
 export default function ChatPage() {
   const t = useTranslations('chat')
@@ -47,7 +47,7 @@ export default function ChatPage() {
       <main className="flex-1 p-4 sm:p-6">
         <div className="max-w-5xl mx-auto h-full">
           <div className="h-full bg-white rounded-2xl shadow-sm border border-gray-200/60 overflow-hidden">
-            <NativeChat />
+            <RealBotpressChat />
           </div>
         </div>
       </main>
