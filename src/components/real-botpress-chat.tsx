@@ -18,7 +18,7 @@ const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
 
 export default function RealBotpressChat() {
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full relative">
       <Webchat
         clientId={clientId}
         configuration={{
@@ -34,9 +34,13 @@ export default function RealBotpressChat() {
           footer: "[⚡ by Baby Sapiens]"
         }}
         style={{
-          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           width: '100%',
-          display: 'flex'
+          height: '100%'
         }}
       />
     </div>
