@@ -29,6 +29,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Evidence Sources**: WHO, AAP, ACOG, CDC, NHS/NICE
 - **Support Range**: Pregnancy through age 5
 - **Key Topics**: Sleep, feeding, development, health, emotional wellness
+- **Implementation Options**: Feature-flagged React Component or Iframe-based chat
+  - React Component: Direct integration, more customizable
+  - Iframe: Better mobile performance, enhanced error handling, iOS Safari optimizations
 
 ## Development Commands
 

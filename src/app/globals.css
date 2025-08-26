@@ -290,10 +290,17 @@
   }
 
   .h-main-safe {
-    height: calc(100% - 4rem); /* Standard calculation */
-    height: calc(-webkit-fill-available - 4rem); /* Safari iOS calculation */
+    height: calc(100% - 2.5rem); /* Standard calculation - Updated for smaller header (h-10 = 2.5rem) */
+    height: calc(-webkit-fill-available - 2.5rem); /* Safari iOS calculation */
     min-height: 0; /* Flexbox fix */
     -webkit-overflow-scrolling: touch; /* iOS native scrolling */
+  }
+
+  @screen lg {
+    .h-main-safe {
+      height: calc(100% - 3rem); /* Desktop calculation (h-12 = 3rem) */
+      height: calc(-webkit-fill-available - 3rem); /* Safari iOS calculation */
+    }
   }
 
   /* Container optimizations for chat UI */
@@ -352,5 +359,167 @@
     .mobile-landing-compact .glass-card {
       padding: 0.5rem !important;
     }
+  }
+
+  /* Iframe Botpress Chat Optimizations */
+  .iframe-chat-container {
+    /* Prevent iOS bounce scrolling */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    
+    /* Fix iOS viewport bugs */
+    min-height: -webkit-fill-available;
+    
+    /* Hardware acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    
+    /* Prevent flicker on iOS */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+    /* Force GPU layer for smooth performance */
+    will-change: transform;
+  }
+
+  /* iOS Safari specific iframe fixes */
+  @supports (-webkit-appearance: none) {
+    .iframe-chat-container iframe {
+      /* Fix iOS iframe scrolling */
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+      
+      /* Prevent iOS zoom on focus */
+      -webkit-text-size-adjust: 100%;
+      
+      /* Better rendering on iOS */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
+
+  /* Enhanced hardware acceleration for iframes */
+  .iframe-chat-container iframe.hw-accelerated {
+    /* Force hardware acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+    /* Optimize for smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    
+    /* Better performance on mobile */
+    will-change: transform, opacity;
+  }
+
+  /* Additional iframe performance optimizations */
+  .iframe-chat-container iframe {
+    /* Prevent iframe content from causing reflows */
+    contain: layout style paint;
+    
+    /* Optimize rendering on mobile devices */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Better touch handling on mobile */
+    touch-action: manipulation;
+    
+    /* Prevent selection issues on mobile */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  /* Fix for iPhone viewport height issues with iframes */
+  @supports (-webkit-appearance: none) and (not (display: -ms-flexbox)) {
+    .iframe-chat-container {
+      /* Fix Safari mobile height calculation */
+      height: -webkit-fill-available;
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  /* Performance optimizations for iframe loading states */
+  .iframe-chat-container .iframe-loading-overlay {
+    /* Prevent layout shifts during loading */
+    will-change: opacity, visibility;
+    
+    /* Smooth transition when hiding */
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  }
+
+  .iframe-chat-container .iframe-loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Enhanced mobile responsiveness for iframe containers */
+  @media screen and (max-width: 640px) {
+    .iframe-chat-container {
+      /* Better touch handling on small screens */
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .iframe-chat-container iframe {
+      /* Prevent zoom on iOS when touching iframe */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+
+  /* Fix for Android Chrome iframe rendering issues */
+  @media screen and (-webkit-min-device-pixel-ratio: 1) {
+    .iframe-chat-container iframe {
+      /* Better rendering on Android devices */
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+  }
+}
+
+/* Botpress Iframe Customizations */
+@layer utilities {
+  /* Hide Botpress Share button and unnecessary elements */
+  .botpress-iframe-container {
+    position: relative;
+  }
+
+  /* CSS injection to hide share button - Applied globally */
+  iframe[src*="botpress"] {
+    /* iframe itself can't be styled internally due to cross-origin */
+  }
+
+  /* Alternative: Cover the share button area with an overlay */
+  .botpress-share-blocker {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    z-index: 10;
+    pointer-events: all;
+    cursor: default;
+  }
+
+  /* Custom scrollbar for chat containers */
+  .chat-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chat-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .chat-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+
+  .chat-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }

@@ -59,8 +59,7 @@ export default function Home() {
             <div className="glass-card p-3 lg:p-8 shadow-glass-lg border-purple-200/25 relative">
               <SignIn 
                 routing="hash"
-                afterSignInUrl="/chat"
-                afterSignUpUrl="/chat"
+                fallbackRedirectUrl="/chat"
                 appearance={{
                   elements: {
                     rootBox: 'w-full',

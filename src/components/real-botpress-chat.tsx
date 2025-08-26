@@ -16,9 +16,14 @@ const Webchat = dynamic(
 
 const clientId = "f657ad35-3575-4861-92bd-e52dac005765"
 
-export default function RealBotpressChat() {
+interface RealBotpressChatProps {
+  className?: string
+  style?: React.CSSProperties
+}
+
+export default function RealBotpressChat({ className, style }: RealBotpressChatProps) {
   return (
-    <div className="h-full w-full relative component-isolated">
+    <div className={`h-full w-full relative component-isolated ${className || ''}`} style={style}>
       <Webchat
         clientId={clientId}
         configuration={{
