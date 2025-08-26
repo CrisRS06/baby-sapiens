@@ -6,6 +6,7 @@ import { useRouter, usePathname } from '@/navigation'
 import { useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { Link } from '@/navigation'
+import { trackLandingView, trackCTAClick, trackSignIn } from '@/lib/analytics'
 
 export default function Home() {
   const { isSignedIn, isLoaded } = useUser()
@@ -14,6 +15,11 @@ export default function Home() {
   const tCommon = useTranslations('common')
   const locale = useLocale()
   const pathname = usePathname()
+
+  useEffect(() => {
+    // Track landing view - FASE 1 Event
+    trackLandingView()
+  }, [])
 
   useEffect(() => {
     // Si el usuario ya está autenticado, redirigir al chat

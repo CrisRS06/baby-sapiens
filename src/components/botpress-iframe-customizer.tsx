@@ -3,6 +3,7 @@
 import { useEffect, useState, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Share2, X } from 'lucide-react'
+import { setupBotpressAnalyticsListener } from '@/lib/botpress-analytics'
 
 /**
  * Hook personalizado para crear overlay responsivo que cubra el botón de Botpress
@@ -238,6 +239,9 @@ export default function BotpressIframeCustomizer() {
   }, [showShareMenu])
 
   useEffect(() => {
+    // FASE 2: Setup analytics listener for chat events
+    setupBotpressAnalyticsListener()
+
     // PostMessage interceptor para comunicación con Botpress
     const handleBotpressMessage = (event: MessageEvent) => {
       if (!event.origin.includes('botpress.cloud')) return

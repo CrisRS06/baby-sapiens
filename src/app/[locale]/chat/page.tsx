@@ -6,6 +6,7 @@ import { LogOut, User, Loader2, AlertTriangle } from 'lucide-react'
 import { useState, useMemo, useEffect } from 'react'
 import { createBotpressUrlForUser, validateBotpressEnvironment, safeBotpressOperation } from '@/lib/botpress-utils'
 import BotpressIframeCustomizer from '@/components/botpress-iframe-customizer'
+import { trackOpenWebchat, trackSignIn, startTimer, endTimer } from '@/lib/analytics'
 // import BotpressChatWrapper from '@/components/botpress-chat-wrapper'
 
 export default function ChatPage() {
@@ -82,6 +83,16 @@ export default function ChatPage() {
       validateEnvironment()
     }
   }, [isLoaded, createUrl])
+
+  // FASE 1: Analytics Tracking
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      // Track successful sign in - KEY EVENT
+      trackSignIn()
+      // Track opening webchat from chat page - KEY EVENT
+      trackOpenWebchat('chat_page')
+    }
+  }, [isLoaded, isSignedIn])
 
   // Estados de carga
   const isLoading = !isLoaded || isInitializing

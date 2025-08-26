@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -96,6 +97,23 @@ export default function RootLayout({
     >
       <html lang="es">
         <body className={`${inter.variable} font-sans antialiased`}>
+          {/* Google Analytics 4 - Privacy-First Implementation */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-6YHWM41FR8"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6YHWM41FR8', {
+                anonymize_ip: true,
+                allow_google_signals: false,
+                allow_ad_personalization_signals: false,
+              });
+            `}
+          </Script>
           {children}
         </body>
       </html>
